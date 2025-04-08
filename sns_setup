@@ -1,0 +1,36 @@
+# 🔔 SNS Setup Instructions
+
+## 1. Create an SNS Topic
+
+1. Go to the **Amazon SNS** console.
+2. Click **Topics** > **Create topic**.
+3. Choose **Standard**.
+4. Name your topic (e.g., `iam-anomaly-alerts`).
+5. Leave defaults and click **Create topic**.
+
+## 2. Add a Subscription
+
+1. After the topic is created, click **Create subscription**.
+2. Protocol: I used Email. You can also use SMS or any other media you prefer
+3. Endpoint: Enter email address.
+4. Click **Create subscription**.
+
+⚠️ You’ll need to confirm the subscription via the email sent to you.
+
+## 3. Grant Publish Permissions (if needed)
+
+If your Lambda function isn't in the same account or doesn't have permissions:
+
+- Attach the following inline policy to the Lambda execution role:
+
+```json
+{
+  "Effect": "Allow",
+  "Action": "sns:Publish",
+  "Resource": "arn:aws:sns:your-region:your-account-id:iam-anomaly-alerts"
+}
+
+## -Ensure your Lambda function is subscribed to the SNS topic as well so it runs in response to the cloudwatch event trigger
+## -Also Ensure your resources are in the same region, I ran into issues because they weren't
+
+
