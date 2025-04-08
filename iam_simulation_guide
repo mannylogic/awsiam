@@ -1,0 +1,27 @@
+
+# 🧪 IAM Anomaly Simulation Guide
+
+Use this guide to simulate suspicious IAM activity that may trigger GuardDuty findings.
+
+- Create a test user with basic permissions (e.g., read-only access).
+- Assign the user to a test group monitored by GuardDuty.
+- I ensured test group had basic permissions as well
+
+Simulate Unusual Behavior ny logging in from different countries within short time
+
+- Use a **VPN** to log in from different regions (e.g., Netherlands, USA, Singapore) within a short timeframe.
+- GuardDuty may trigger findings like `UnauthorizedAccess:IAMUser/ConsoleLoginSuccess.B`.
+
+
+From the test user, attempt to:
+  - Attach `AdministratorAccess` to their own role.
+  - Create a new user or role.
+  - Modify IAM policies.
+
+ Monitor GuardDuty
+- Navigate to **GuardDuty > Findings**.
+- Filter by `resourceType = "IAMUser"` or by `findingType` (e.g., `AnomalousBehavior`).
+
+> ⚠️ Note: Findings may take a few minutes to appear.
+
+## The function will be triggered resulting in email alert and user being disabled
