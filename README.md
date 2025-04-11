@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-This project demonstrates how to **detect and automatically respond to suspicious IAM activity in AWS**, leveraging native services like **Amazon GuardDuty**, **EventBridge**, **SNS**, **S3**, and **Lambda**. The solution is designed to identify potential threats — such as anomalous IAM logins or privilege escalation — and trigger automated security workflows.
+Research shows that 1 in 4 people can still login to their account from previous jobs they left, granting them access to information they shouldn't have access to. This project demonstrates how to **detect and automatically respond to suspicious IAM activity in AWS**, leveraging native services like **Amazon GuardDuty**, **EventBridge**, **SNS**, **S3**, and **Lambda**. The solution is designed to identify potential threats — such as anomalous IAM logins or privilege escalation — and trigger automated security workflows.
 
 ---
 
